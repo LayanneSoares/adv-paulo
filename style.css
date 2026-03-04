@@ -391,6 +391,11 @@ nav {
   );
 }
 
+/* WhatsApp - Verde oficial */
+.social-btn.whatsapp {
+  background-color: #25d366;
+}
+
 /* Efeito 3D ao passar o mouse */
 .social-btn:hover {
   transform: translateY(-5px);
