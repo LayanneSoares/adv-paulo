@@ -80,7 +80,7 @@
 
     <section id="servicos" class="bg-light">
       <div class="container section">
-        <h2 class="text-center">Áreas de Especialidade</h2>
+        <h2>Áreas de Especialidade</h2>
         <div class="cards-grid">
           <div class="card reveal">
             <h3>Aposentadorias</h3>
@@ -293,6 +293,18 @@
       setTimeout(() => {
         form.classList.add("active");
       }, 10);
+
+      window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+});
     </script>
+
+
+</button>
   </body>
 </html>
