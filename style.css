@@ -1,0 +1,488 @@
+/* Variáveis de Cores e Fontes */
+:root {
+  --primary: #c5a059; /* Azul Marinho Profissional */
+  --accent: #c5a059; /* Dourado Soft */
+  --text: #333333;
+  --light-bg: #f9f9f9;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  scroll-behavior: smooth;
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Playfair Display", serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+hr {
+  width: 60px;
+  border: 1px solid var(--accent);
+  margin: 20px 0;
+}
+
+/* HEADER "VIDRO": transparente + blur */
+header {
+  background: transparent; /* Remove o fundo branco */
+  padding: 20px 0;
+  position: absolute; /* Faz o menu flutuar sobre o conteúdo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: none; /* Remove a sombra para ficar limpo */
+}
+
+/* Se você tiver uma classe no header, ex: .header, pode usar isso no lugar:
+.header { ... } */
+
+/* (opcional) melhora a legibilidade dos links no blur */
+header nav a {
+  color: #fff; /* ajuste se seu fundo for claro */
+  text-decoration: none;
+}
+
+header nav a:hover {
+  opacity: 0.85;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilo da Logo */
+.logo img {
+  height: 150px; /* Ajuste essa altura conforme o desenho da sua logo */
+  width: auto; /* Mantém a proporção da largura */
+  display: block;
+}
+
+/* Remove qualquer margem ou padding extra do link da logo */
+.logo a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.btn-contato {
+  background: var(--primary);
+  color: var(--white) !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* Hero */
+.hero {
+  height: 70vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.788), rgba(85, 62, 3, 0.247)),
+    url("img/background.jpg") center/cover;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 16px 45px;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 15px;
+}
+
+/* 3. Efeito de Hover (Pausa o pulso quando o mouse está em cima) */
+.cta-button:hover {
+  background: #b08d4a;
+  transform: scale(1.05);
+  animation: none;
+}
+
+/* Container que segura a imagem */
+.sobre-img-placeholder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0; /* Cria um espaço de segurança nas bordas */
+}
+
+/* Controle direto da foto */
+.sobre-img {
+  width: 500px; /* Garante que ela seja responsiva */
+  height: auto; /* Mantém a proporção sem distorcer */
+  display: block;
+  border-radius: 8px; /* Opcional: deixa os cantos levemente suaves */
+  /* Remove sombras pesadas para manter o estilo clean inicial */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste do Grid para alinhar com o texto */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center; /* Centraliza o texto verticalmente com a foto */
+}
+
+.sobre-grid h2 {
+  font-size: 40px;
+  color: var(--text);
+}
+.sobre-grid p {
+  font-size: 20px;
+  color: #000000;
+}
+.sobre-grid strong {
+  color: var(--primary);
+}
+
+/* Efeito de Surgimento (Reveal) */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+/* Estado quando o texto se torna visível */
+.reveal-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adiciona um pequeno atraso para o parágrafo não subir junto com o título */
+.delay-1 {
+  transition-delay: 0.2s;
+}
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+/* Seção de Especialidades com Efeito Parallax */
+.bg-light {
+  /* 1. Imagem com overlay escuro */
+  background: linear-gradient(rgba(0, 0, 0, 0.788), rgba(85, 62, 3, 0.438));
+
+  /* 2. O SEGREDO: fixed faz a imagem ficar "presa" enquanto o site corre por cima dela */
+  background-attachment: fixed;
+
+  /* 3. Centralização e cobertura */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 1024px) {
+  .bg-light {
+    background-attachment: scroll; /* Volta ao normal em celulares para não quebrar */
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+
+  /* Cria o ambiente 3D para os cards */
+  perspective: 1000px;
+  margin-top: 50px;
+}
+
+/* Estilo Base do Card 3D */
+.card {
+  background: var(--text);
+  padding: 40px;
+  border-radius: 12px; /* Cantos mais arredondados combinam com 3D */
+
+  /* Sombra profunda para dar volume */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  /* Preparação para o movimento */
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de "Levantar" ao passar o mouse */
+.card:hover {
+  /* Eleva o card, inclina levemente e aumenta a escala */
+  transform: translateY(-15px) scale(1.03) rotateX(2deg) rotateY(2deg);
+
+  /* A sombra fica maior e mais suave, simulando distância do fundo */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  /* Borda dourada ganha destaque */
+  border-top: 5px solid var(--accent);
+}
+
+/* Detalhe extra: Reflexo sutil no card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.card:hover::before {
+  left: 100%; /* Um brilho passa pelo card quando você foca nele */
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: var(--white);
+  border-bottom: 2px solid var(--accent); /* Uma linha fina dourada abaixo do título */
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.card p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.bg-light h2 {
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+/* Formulário */
+.subtitle {
+  margin-bottom: 50px;
+  color: #777;
+}
+
+.contato-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(114, 82, 2, 0.158));
+
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.contato-info h3 {
+  margin-bottom: 25px;
+  color: var(--primary);
+}
+
+.map-placeholder {
+  margin-top: 30px;
+  height: 200px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* LinkedIn - Azul Profissional */
+.social-btn.linkedin {
+  background-color: #0077b5;
+}
+
+/* Instagram - Gradiente */
+.social-btn.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+/* Efeito 3D ao passar o mouse */
+.social-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4); /* Brilho dourado no hover */
+  filter: brightness(1.1);
+}
+
+.map-container iframe {
+  display: block;
+  filter: grayscale(20%) contrast(1.1); /* Um filtro leve para combinar com o site jurídico */
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sobre-grid,
+  .contato-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+@keyframes pulsar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(197, 160, 89, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+  }
+}
+
+/* Estado inicial dos elementos (invisíveis) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+/* Estado quando o elemento entra na tela */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
