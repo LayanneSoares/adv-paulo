@@ -533,43 +533,52 @@ footer {
   }
 }
 @media (max-width: 768px) {
-  /* 1. Reduz o espaço em cima e embaixo da barra branca */
-  header {
-    padding: 5px 0 !important; /* Estava 20px, agora quase zero */
-    height: auto !important;
-  }
-
-  /* 2. Diminui a altura da logo, que é o que empurra a barra para baixo */
-  .logo img {
-    height: 45px !important; /* Ajuste aqui se quiser um pouco maior ou menor */
-    width: auto !important;
-  }
-
-  /* 3. Ajusta o nav para os itens não ficarem espalhados */
+  /* 1. Ajusta a barra para alinhar os itens horizontalmente (lado a lado) */
   nav {
-    flex-direction: column;
-    gap: 2px; /* Espaço mínimo entre logo e links */
+    flex-direction: row; /* Muda de cima para o lado */
+    justify-content: space-between; /* Logo na esquerda, links na direita */
+    align-items: center;
+    padding: 0 10px;
   }
 
-  /* 4. Deixa os links menores para caberem na barra fina */
+  /* 2. Deixa a logo pequena para caber na linha */
+  .logo img {
+    height: 45px !important; /* Altura reduzida para não esticar a barra */
+    width: auto;
+  }
+
+  /* 3. Ajusta os links para ficarem em linha e bem compactos */
   .nav-links {
     display: flex !important;
-    margin-top: 0 !important;
-    gap: 8px;
+    margin-top: 0; /* Remove a margem superior que empurrava para baixo */
+    gap: 5px; /* Espaço entre os links */
+  }
+
+  .nav-links li {
+    margin-left: 5px;
   }
 
   .nav-links a {
-    font-size: 0.6rem;
+    font-size: 0.55rem; /* Fonte pequena para caber tudo em uma linha só */
     padding: 2px;
+    white-space: nowrap; /* Impede que o texto quebre linha */
   }
 
-  /* 5. Ajusta o botão para acompanhar a barra fina */
+  /* 4. Ajusta o botão de contato para o tamanho mini */
   .btn-contato {
     padding: 4px 8px !important;
+    font-size: 0.55rem !important;
   }
 
-  /* 6. Garante que o conteúdo do site não suba para trás da barra */
-  .hero {
-    padding-top: 70px !important;
+  /* 5. Mantém o ajuste das outras seções */
+  .hero-content h1 {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .sobre-grid,
+  .contato-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
 }
