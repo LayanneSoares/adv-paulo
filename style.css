@@ -1,7 +1,7 @@
-/* Variáveis de Cores e Fontes */
+
 :root {
-  --primary: #c5a059; /* Azul Marinho Profissional */
-  --accent: #c5a059; /* Dourado Soft */
+  --primary: #c5a059; 
+  --accent: #c5a059; 
   --text: #333333;
   --light-bg: #f9f9f9;
   --white: #ffffff;
@@ -48,24 +48,20 @@ hr {
   margin: 20px 0;
 }
 
-/* HEADER "VIDRO": transparente + blur */
+
 header {
-  background: transparent; /* Remove o fundo branco */
+  background: transparent; 
   padding: 20px 0;
-  position: absolute; /* Faz o menu flutuar sobre o conteúdo */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: none; /* Remove a sombra para ficar limpo */
+  box-shadow: none; 
 }
 
-/* Se você tiver uma classe no header, ex: .header, pode usar isso no lugar:
-.header { ... } */
-
-/* (opcional) melhora a legibilidade dos links no blur */
 header nav a {
-  color: #fff; /* ajuste se seu fundo for claro */
+  color: #fff; 
   text-decoration: none;
 }
 
@@ -79,14 +75,13 @@ nav {
   align-items: center;
 }
 
-/* Estilo da Logo */
+
 .logo img {
-  height: 150px; /* Ajuste essa altura conforme o desenho da sua logo */
-  width: auto; /* Mantém a proporção da largura */
+  height: 150px; 
+  width: auto; 
   display: block;
 }
 
-/* Remove qualquer margem ou padding extra do link da logo */
 .logo a {
   text-decoration: none;
   display: inline-block;
@@ -155,38 +150,37 @@ nav {
   border-radius: 15px;
 }
 
-/* 3. Efeito de Hover (Pausa o pulso quando o mouse está em cima) */
+
 .cta-button:hover {
   background: #b08d4a;
   transform: scale(1.05);
   animation: none;
 }
 
-/* Container que segura a imagem */
+
 .sobre-img-placeholder {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0; /* Cria um espaço de segurança nas bordas */
+  padding: 40px 0;
 }
 
-/* Controle direto da foto */
+
 .sobre-img {
-  width: 500px; /* Garante que ela seja responsiva */
-  height: auto; /* Mantém a proporção sem distorcer */
+  width: 500px; /
+  height: auto; 
   display: block;
-  border-radius: 8px; /* Opcional: deixa os cantos levemente suaves */
-  /* Remove sombras pesadas para manter o estilo clean inicial */
+  border-radius: 8px; 
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Ajuste do Grid para alinhar com o texto */
 .sobre-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  align-items: center; /* Centraliza o texto verticalmente com a foto */
+  align-items: center; 
 }
 
 .sobre-grid h2 {
@@ -201,20 +195,17 @@ nav {
   color: var(--primary);
 }
 
-/* Efeito de Surgimento (Reveal) */
 .reveal-text {
   opacity: 0;
   transform: translateY(30px);
   transition: all 1s ease-out;
 }
 
-/* Estado quando o texto se torna visível */
 .reveal-text.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Adiciona um pequeno atraso para o parágrafo não subir junto com o título */
 .delay-1 {
   transition-delay: 0.2s;
 }
@@ -222,15 +213,11 @@ nav {
   transition-delay: 0.4s;
 }
 
-/* Seção de Especialidades com Efeito Parallax */
 .bg-light {
-  /* 1. Imagem com overlay escuro */
   background: linear-gradient(rgba(0, 0, 0, 0.788), rgba(85, 62, 3, 0.438));
 
-  /* 2. O SEGREDO: fixed faz a imagem ficar "presa" enquanto o site corre por cima dela */
   background-attachment: fixed;
 
-  /* 3. Centralização e cobertura */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -238,7 +225,7 @@ nav {
 
 @media (max-width: 1024px) {
   .bg-light {
-    background-attachment: scroll; /* Volta ao normal em celulares para não quebrar */
+    background-attachment: scroll; 
   }
 }
 
@@ -248,21 +235,20 @@ nav {
   gap: 30px;
   margin-top: 50px;
 
-  /* Cria o ambiente 3D para os cards */
   perspective: 1000px;
   margin-top: 50px;
 }
 
-/* Estilo Base do Card 3D */
+
 .card {
   background: var(--text);
   padding: 40px;
-  border-radius: 12px; /* Cantos mais arredondados combinam com 3D */
+  border-radius: 12px;
 
-  /* Sombra profunda para dar volume */
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-  /* Preparação para o movimento */
+
   transition:
     transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     box-shadow 0.4s ease;
@@ -271,19 +257,19 @@ nav {
   overflow: hidden;
 }
 
-/* Efeito de "Levantar" ao passar o mouse */
+
 .card:hover {
-  /* Eleva o card, inclina levemente e aumenta a escala */
+
   transform: translateY(-15px) scale(1.03) rotateX(2deg) rotateY(2deg);
 
-  /* A sombra fica maior e mais suave, simulando distância do fundo */
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 
-  /* Borda dourada ganha destaque */
+
   border-top: 5px solid var(--accent);
 }
 
-/* Detalhe extra: Reflexo sutil no card */
+
 .card::before {
   content: "";
   position: absolute;
@@ -301,13 +287,13 @@ nav {
 }
 
 .card:hover::before {
-  left: 100%; /* Um brilho passa pelo card quando você foca nele */
+  left: 100%; 
 }
 
 .card h3 {
   margin-bottom: 15px;
   color: var(--white);
-  border-bottom: 2px solid var(--accent); /* Uma linha fina dourada abaixo do título */
+  border-bottom: 2px solid var(--accent); 
   padding-bottom: 10px;
   display: inline-block;
 }
@@ -323,7 +309,7 @@ nav {
   color: var(--white);
 }
 
-/* Formulário */
+
 .subtitle {
   margin-bottom: 50px;
   color: #777;
@@ -374,12 +360,12 @@ nav {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* LinkedIn - Azul Profissional */
+
 .social-btn.linkedin {
   background-color: #0077b5;
 }
 
-/* Instagram - Gradiente */
+
 .social-btn.instagram {
   background: radial-gradient(
     circle at 30% 107%,
@@ -391,21 +377,21 @@ nav {
   );
 }
 
-/* WhatsApp - Verde oficial */
+
 .social-btn.whatsapp {
   background-color: #25d366;
 }
 
-/* Efeito 3D ao passar o mouse */
+
 .social-btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4); /* Brilho dourado no hover */
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4); 
   filter: brightness(1.1);
 }
 
 .map-container iframe {
   display: block;
-  filter: grayscale(20%) contrast(1.1); /* Um filtro leve para combinar com o site jurídico */
+  filter: grayscale(20%) contrast(1.1); 
 }
 
 .form-row {
@@ -439,7 +425,7 @@ nav {
   width: 100%;
 }
 
-/* Footer */
+
 footer {
   background: var(--primary);
   color: #ffffff;
@@ -447,7 +433,7 @@ footer {
   padding: 40px 0;
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .sobre-grid,
   .contato-wrapper {
@@ -479,14 +465,14 @@ footer {
   }
 }
 
-/* Estado inicial dos elementos (invisíveis) */
+
 .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
 }
 
-/* Estado quando o elemento entra na tela */
+
 .reveal.active {
   opacity: 1;
   transform: translateY(0);

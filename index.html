@@ -247,7 +247,6 @@
     </footer>
 
     <script>
-      // 1. Efeito de surgimento (Reveal)
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -263,7 +262,6 @@
         .querySelectorAll(".reveal, .reveal-text")
         .forEach((el) => observer.observe(el));
 
-      // 2. Envio do Formulário com retorno automático
       const form = document.querySelector("form");
       const status = document.getElementById("status-mensagem");
 
@@ -278,23 +276,21 @@
         });
 
         if (response.ok) {
-          // Esconde o formulário e mostra o sucesso
           form.style.display = "none";
           status.style.display = "block";
-          form.reset(); // Limpa os campos digitados
+          form.reset();
 
-          // AGORA A MÁGICA: Espera 5 segundos e volta ao normal
           setTimeout(() => {
-            status.style.display = "none"; // Some o aviso de sucesso
-            form.style.display = "block"; // Aparece o formulário padrão
+            status.style.display = "none";
+            form.style.display = "block";
           }, 5000);
         } else {
           alert("Ops! Ocorreu um erro ao enviar. Tente novamente.");
         }
       };
-      form.classList.remove("active"); // Tira o efeito
+      form.classList.remove("active");
       setTimeout(() => {
-        form.classList.add("active"); // Aplica o efeito de novo ao aparecer
+        form.classList.add("active");
       }, 10);
     </script>
   </body>
