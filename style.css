@@ -533,54 +533,38 @@ footer {
   }
 }
 @media (max-width: 768px) {
-  /* 1. Diminui drasticamente o espaço interno do header */
+  /* 1. Deixa a barra branca (header) bem fina */
   header {
-    padding: 5px 0 !important;
-    background-color: rgba(255, 255, 255, 0.98);
+    padding: 5px 0 !important; /* Estava 20px, agora quase nada */
+    background-color: white; /* Garante que a barra continue branca */
   }
 
-  /* 2. Força a logo a ficar pequena no celular */
+  /* 2. Diminui o tamanho da logo para ela não esticar a barra */
   .logo img {
-    height: 50px !important; /* Estava 150px, agora 50px */
+    height: 45px !important; /* Estava 150px, agora 45px (o que define a altura da barra) */
     width: auto;
   }
 
-  /* 3. Organiza os links em uma linha fina abaixo da logo */
-  nav {
-    flex-direction: column;
-    gap: 5px;
-  }
-
+  /* 3. Mantém os links em uma linha (se couberem) ou escondidos como você preferir */
   .nav-links {
-    display: flex !important; /* Garante que o menu apareça */
-    margin: 0;
-    padding-bottom: 5px;
+    display: none; /* Se você gostou de deixar só a logo no topo, mantenha assim */
   }
 
-  .nav-links li {
-    margin: 0 8px; /* Espaçamento curto entre os links */
-  }
-
-  .nav-links a {
-    font-size: 0.7rem; /* Letra pequena e legível */
-    text-transform: none; /* Remove o excesso de letras maiúsculas */
-  }
-
-  /* 4. Ajusta o botão "Fale Conosco" para não ocupar espaço demais */
-  .btn-contato {
-    padding: 5px 12px !important;
-    font-size: 0.7rem !important;
-    border-radius: 5px;
-  }
-
-  /* 5. Ajusta o Hero (topo) para o texto não subir para baixo do menu */
+  /* 4. Ajusta o topo da página para não ficar um buraco ou cobrir o texto */
   .hero {
-    padding-top: 100px;
-    height: auto;
-    min-height: 400px;
+    padding-top: 60px; /* Ajustado para a nova barra fina */
   }
 
-  .hero-content h1 {
-    font-size: 1.6rem;
+  /* 5. Corrige o grid de contato e sobre para ficarem um embaixo do outro */
+  .sobre-grid,
+  .contato-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .sobre-img {
+    width: 100%;
+    max-width: 300px; /* Foto do Dr. Paulo com tamanho controlado no cel */
   }
 }
